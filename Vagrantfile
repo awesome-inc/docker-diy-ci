@@ -6,8 +6,14 @@ Vagrant.configure(2) do |config|
   config.ssh.insert_key = false 
   
   config.vm.box = "bento/ubuntu-16.04"
-  
+
+  # gitblit
   config.vm.network :forwarded_port, guest: 8080, host: 8080
+  config.vm.network :forwarded_port, guest: 8443, host: 8443
+  config.vm.network :forwarded_port, guest: 9418, host: 9418
+  config.vm.network :forwarded_port, guest: 29418, host: 29418
+  # jenkins
+  config.vm.network :forwarded_port, guest: 8081, host: 8081
   config.vm.network :forwarded_port, guest: 50000, host: 50000
   
   # just in case there is a HTTP_PROXY configured for the host 
@@ -57,6 +63,6 @@ Vagrant.configure(2) do |config|
   config.vm.provision :docker  
   config.vm.provision :docker_compose, 
     yml: "/vagrant/docker-compose.yml", 
-    project_name: "docker-jenkins",
+    project_name: "diy-ci",
     run: "always"  
 end
