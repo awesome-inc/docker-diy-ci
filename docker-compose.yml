@@ -7,6 +7,8 @@ services:
       - "50000:50000"
     volumes:
       - ./jenkins/home:/var/jenkins_home
+    links:
+      - sonarqube
   gitblit:
     image: jacekkow/gitblit
     ports:
@@ -19,3 +21,8 @@ services:
       - ./gitblit/data:/opt/gitblit-data
     links:
       - jenkins
+  sonarqube:
+    image: sonarqube
+    ports:
+      - "9000:9000"
+      - "9092:9092"

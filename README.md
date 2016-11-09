@@ -4,8 +4,9 @@ Poor man's Continuous Integration platform using Docker.
 
 Right now, this comprises
 
-- [Gitblit](http://gitblit.com/) 
-- [Jenkins](https://jenkins.io/) 
+- [Gitblit](https://hub.docker.com/r/jacekkow/gitblit/) 
+- [Jenkins](https://hub.docker.com/_/jenkins/)
+- [SonarQube](https://hub.docker.com/_/sonarqube/)
 
 ## Setup
 
@@ -23,4 +24,8 @@ Alternatively use [Vagrant](https://www.vagrantup.com/)
 
     vagrant up
 
-Browse to Gitblit [http://localhost:8080](http://localhost:8080) and Jenkins [http://localhost:8081](http://localhost:8081)
+Browse to 
+
+- Gitblit: [http://localhost:8080](http://localhost:8080)
+- Jenkins: [http://localhost:8081](http://localhost:8081)
+- SonarQube: [http://localhost:9000](http://localhost:9000)

@@ -15,6 +15,9 @@ Vagrant.configure(2) do |config|
   # jenkins
   config.vm.network :forwarded_port, guest: 8081, host: 8081
   config.vm.network :forwarded_port, guest: 50000, host: 50000
+  # sonarqube
+  config.vm.network :forwarded_port, guest: 9000, host: 9000
+  config.vm.network :forwarded_port, guest: 9092, host: 9092
   
   # just in case there is a HTTP_PROXY configured for the host 
   # system, the virtual machine is going to use it
@@ -45,6 +48,8 @@ Vagrant.configure(2) do |config|
   end
   
   config.vm.provider "virtualbox" do |v|
+    v.memory = 4096
+    v.cpus = 2
     v.name = "docker-jenkins"
   end
   
